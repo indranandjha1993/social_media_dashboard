@@ -11,5 +11,9 @@ class CustomUserAdmin(UserAdmin):
     model = CustomUser
     list_display = ["email", "username", ]
 
+    fieldsets = UserAdmin.fieldsets + (
+        (None, {'fields': ('twitter_handle',)}),
+    )
+
 
 admin.site.register(CustomUser, CustomUserAdmin)
